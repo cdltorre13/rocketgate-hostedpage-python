@@ -121,7 +121,8 @@ class LinkBuilder:
 
         sha1Hash = hashlib.sha1(unencodedRetStrSign)
         
-        b64 = base64.encodestring(sha1Hash.digest())
+        # b64 = base64.encodestring(sha1Hash.digest())
+        b64 = base64.encodebytes(sha1Hash.digest())
         encodedRetStr += "&hash=" + urllib.parse.quote_plus(b64)[:-3]
 
         return encodedRetStr
